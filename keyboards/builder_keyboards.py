@@ -12,20 +12,3 @@ def create_inline_keyboard(*buttons: str) -> InlineKeyboardMarkup:
         callback_data=button) for button in buttons]
     )
     return kb_builder.as_markup()
-
-
-kb_builder = ReplyKeyboardBuilder()
-
-BTC_btn = KeyboardButton(
-    text=LEXICON['BTC'],
-)
-
-ETH_btn = KeyboardButton(
-    text=LEXICON['ETH'],
-)
-
-kb_builder.row(BTC_btn, ETH_btn, width=1)
-keyboard: ReplyKeyboardMarkup = kb_builder.as_markup(
-    resize_keyboard=True,
-    one_time_keyboard=True
-)

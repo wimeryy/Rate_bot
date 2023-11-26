@@ -5,7 +5,8 @@ from environs import Env
 @dataclass
 class TgBot:
     token: str
-    api_key: str
+    api_key_crypto: str
+    api_key_currency: str
 
 
 @dataclass
@@ -17,4 +18,5 @@ def load_config(path: str | None = None) -> Config:
     env = Env()
     env.read_env(path)
     return Config(Rate_bot=TgBot(token=env('BOT_TOKEN'),
-                                 api_key=env('API_KEY')))
+                                 api_key_crypto=env('API_KEY_CRYPTO'),
+                                 api_key_currency=env('API_KEY_CURRENCY')))
